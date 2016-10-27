@@ -30,6 +30,16 @@ new Vue({
                     option4: 'April',
                     answer: 'April',
                     answered: ''
+                },
+                {
+                    id: 3,
+                    question: 'Earth is ........... planet.',
+                    option1: 'First',
+                    option2: 'Second',
+                    option3: 'Third',
+                    option4: 'Fourth',
+                    answer: 'Third',
+                    answered: ''
                 }
             ];
 
@@ -60,18 +70,11 @@ new Vue({
                     }
                 } else if(modal[i].answered == '') {
                     alert('Please answer all the question '+modal[i].id);
-                    if(event) {
-                        event.preventDefault();
-                    }
-                    exit;
+                    return;
                 }
             }
             var per = (marks/len)*100;
             alert('You scored '+per+'%');
-
-            if(event) {
-                event.preventDefault();
-            }
         }
     }
 });

@@ -44,7 +44,7 @@
                 <button @click="checkResult()" :class="sel.btn+' btn1'">Finish</button>
             </center>
         </div> -->
-        <input type="submit" value="Finish" @click="checkResult($event)" :class="sel.btn">
+        <input type="submit" value="Finish" @click.prevent.stop="checkResult($event)" :class="sel.btn + ' btn1'">
         <!-- <pre class="code">
 			{{ $data }}
 		</pre> -->
