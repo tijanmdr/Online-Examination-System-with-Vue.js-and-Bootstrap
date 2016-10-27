@@ -46,23 +46,32 @@ new Vue({
             this.sel = sel;
         },
 
-        checkResult: function() {
+        checkResult: function(event) {
             var modal = this.questions;
             var len = modal.length;
             var marks = 0;
 
             for (var i=0; i<len; i++) {
-                if (modal[i].answered == modal[i].answer) {
-                    console.log('Sucessful');
+                if(modal[i].answered != '') {
+                    if (modal[i].answered == modal[i].answer) {
+                        marks++;
+                    } else {
 
-                    marks++;
-                } else {
-                    console.log('The correct answer is '+modal[i].answer);
+                    }
+                } else if(modal[i].answered == '') {
+                    alert('Please answer all the question '+modal[i].id);
+                    if(event) {
+                        event.preventDefault();
+                    }
+                    exit;
                 }
             }
-
             var per = (marks/len)*100;
-            console.log('You scored '+per+'%');
+            alert('You scored '+per+'%');
+
+            if(event) {
+                event.preventDefault();
+            }
         }
     }
 });
